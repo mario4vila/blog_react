@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
-import Greeting from './Greeting';
 import MyComponent from './component/MyComponent/MyComponent';
+import Movies from './component/Movies/Movies';
 
 function hello(name, age){
   return (
@@ -35,8 +35,8 @@ function App() {
           Learn React
         </a>
         <section className='components'>
-        <Greeting/>
         <MyComponent/>
+        <Movies/>
         </section>
 
       </header>
