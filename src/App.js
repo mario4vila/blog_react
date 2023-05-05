@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import MyComponent from './component/MyComponent/MyComponent';
 import Movies from './component/Movies/Movies';
+import Header from "./component/Header";
 
 function hello(name, age){
   return (
@@ -18,6 +19,7 @@ function App() {
   const age = 12
   return (
     <div className="App">
+      <Header/>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
