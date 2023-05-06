@@ -1,7 +1,6 @@
 import React from "react";
 import logo from "../logo.svg";
 import MyComponent from "./MyComponent/MyComponent";
-import Movies from "./Movies/Movies";
 
 function hello(name, age) {
     return (
@@ -39,6 +38,8 @@ class Articles extends React.Component {
 
         return (
             <header className="App-header">
+                <h2 className="subheader">Últimos artículos</h2>
+
                 <p>{this.state.count}</p>
                 <button onClick={this.add.bind(this)}>Sumar</button>
                 <button onClick={this.rest}>Restar</button>
@@ -60,7 +61,6 @@ class Articles extends React.Component {
                 </a>
                 <section className='components'>
                     <MyComponent/>
-                    <Movies/>
                 </section>
 
             </header>

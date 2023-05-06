@@ -4,6 +4,8 @@ import Slider from "./component/Slider";
 import Sidebar from "./component/Sidebar";
 import Footer from "./component/Footer";
 import Articles from "./component/Articles";
+import Movies from "./component/Movies/Movies";
+import React from "react";
 
 function App() {
 
@@ -16,8 +18,9 @@ function App() {
 
             <div className="center">
                 <section id="content">
-                    <h2 className="subheader">Últimos artículos</h2>
                     <Articles/>
+
+                    <Movies/>
                 </section>
 
                 <Sidebar/>
