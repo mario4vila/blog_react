@@ -3,6 +3,7 @@ import './App.css';
 import MyComponent from './component/MyComponent/MyComponent';
 import Movies from './component/Movies/Movies';
 import Header from "./component/Header";
+import Slider from "./component/Slider";
 
 function hello(name, age){
   return (
@@ -20,6 +21,7 @@ function App() {
   return (
     <div className="App">
       <Header/>
+      <Slider/>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
