@@ -11,13 +11,38 @@ function hello(name, age) {
         </div>
     );
 }
+
 class Articles extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            count: 0
+        }
+    }
+
+    add(){
+        this.setState({
+            count: (this.state.count + 1)
+        });
+    }
+
+    rest(){
+        this.setState({
+            count: (this.state.count - 1)
+        });
+    }
+
     render() {
         const name = 'Mario';
         const age = 12
 
         return (
             <header className="App-header">
+                <p>{this.state.count}</p>
+                <button onClick={this.add.bind(this)}>Sumar</button>
+                <button onClick={this.rest.bind(this)}>Restar</button>
+
                 <img src={logo} className="App-logo" alt="logo"/>
                 <p>
                     Edit <code>src/App.js</code> and save to reload.
