@@ -5,6 +5,7 @@ import Movies from './component/Movies/Movies';
 import Header from "./component/Header";
 import Slider from "./component/Slider";
 import Sidebar from "./component/Sidebar";
+import Footer from "./component/Footer";
 
 function hello(name, age) {
     return (
@@ -57,6 +58,8 @@ function App() {
                 </section>
 
             </header>
+
+            <Footer/>
         </div>
     );
 }
