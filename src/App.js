@@ -10,7 +10,9 @@ function App() {
     return (
         <div className="App">
             <Header/>
-            <Slider/>
+            <Slider
+                title={"Welcome to my blog made with React"}
+            />
 
             <div className="center">
                 <section id="content">
