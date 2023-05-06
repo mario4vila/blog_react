@@ -27,7 +27,7 @@ class Articles extends React.Component {
         });
     }
 
-    rest(){
+    rest = ()=>{
         this.setState({
             count: (this.state.count - 1)
         });
@@ -41,7 +41,7 @@ class Articles extends React.Component {
             <header className="App-header">
                 <p>{this.state.count}</p>
                 <button onClick={this.add.bind(this)}>Sumar</button>
-                <button onClick={this.rest.bind(this)}>Restar</button>
+                <button onClick={this.rest}>Restar</button>
 
                 <img src={logo} className="App-logo" alt="logo"/>
                 <p>
