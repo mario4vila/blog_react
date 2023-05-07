@@ -27,16 +27,23 @@ class Movies extends Component {
     }
 
     render() {
+        let movieFavourite = (
+            <p>There isn't favourite movie</p>
+        );
+        if(this.state.favourite){
+            movieFavourite = (
+                <p>
+                    <strong>The favourite movie is:</strong>
+                    <span>{this.state.favourite.title}</span>
+                </p>
+            );
+        }
+
         return (
             <div className={'movies'}>
                 <h2>Movies</h2>
 
-                {this.state.favourite &&
-                    <p>
-                        <strong>The favourite movie is:</strong>
-                        <span>{this.state.favourite.title}</span>
-                    </p>
-                }
+                {movieFavourite}
 
                 {
                     this.state.movies.map((movie, i) => {

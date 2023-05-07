@@ -2,15 +2,6 @@ import React from "react";
 import logo from "../logo.svg";
 import MyComponent from "./MyComponent/MyComponent";
 
-function hello(name, age) {
-    return (
-        <div>
-            <h2>Soy {name}</h2>
-            <h2>Tengo {age} años</h2>
-        </div>
-    );
-}
-
 class Articles extends React.Component {
     constructor(props) {
         super(props);
@@ -37,7 +28,7 @@ class Articles extends React.Component {
         const age = 12
 
         return (
-            <header className="App-header">
+            <div className="App-header">
                 <h2 className="subheader">Últimos artículos</h2>
 
                 <p>{this.state.count}</p>
@@ -47,9 +38,6 @@ class Articles extends React.Component {
                 <img src={logo} className="App-logo" alt="logo"/>
                 <p>
                     Edit <code>src/App.js</code> and save to reload.
-                </p>
-                <p>
-                    {hello(name, age)}
                 </p>
                 <a
                     className="App-link"
@@ -63,7 +51,7 @@ class Articles extends React.Component {
                     <MyComponent/>
                 </section>
 
-            </header>
+            </div>
         );
     }
 }
