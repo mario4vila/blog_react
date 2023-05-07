@@ -16,7 +16,14 @@ class Movies extends Component {
                 title: 'The Godfather',
                 image: 'https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg'
             }
-        ]
+        ],
+        favourite: null
+    }
+
+    markFavourite = (movie) => {
+        this.setState({
+            favourite: movie
+        });
     }
 
     render() {
@@ -24,13 +31,20 @@ class Movies extends Component {
             <div className={'movies'}>
                 <h2>Movies</h2>
 
+                {this.state.favourite &&
+                    <p>
+                        <strong>The favourite movie is:</strong>
+                        <span>{this.state.favourite.title}</span>
+                    </p>
+                }
+
                 {
                     this.state.movies.map((movie, i) => {
                         return (
                             <Movie
                                 key={i}
-                                title={movie.title}
-                                image={movie.image}
+                                movie={movie}
+                                markFavourite={this.markFavourite}
                             />
                         );
                     })
