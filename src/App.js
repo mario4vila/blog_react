@@ -6,7 +6,7 @@ import Footer from "./component/Footer";
 import Articles from "./component/Articles";
 import Movies from "./component/Movies/Movies";
 import React from "react";
-
+import Router from "./Router";
 function App() {
 
     return (
@@ -18,9 +18,7 @@ function App() {
 
             <div className="center">
                 <section id="content">
-                    <Articles/>
-
-                    <Movies/>
+                    <Router/>
                 </section>
 
                 <Sidebar/>

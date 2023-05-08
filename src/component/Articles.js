@@ -47,9 +47,6 @@ class Articles extends React.Component {
                 >
                     Learn React
                 </a>
-                <section className='components'>
-                    <MyComponent/>
-                </section>
 
             </div>
         );
