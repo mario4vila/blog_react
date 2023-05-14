@@ -20,16 +20,23 @@ class Header extends React.Component {
                                 <NavLink to="/">Inicio</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/test">Blog</NavLink>
+                                <NavLink to="/test/1">Blog</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/movies">Formulario</NavLink>
+                                <NavLink
+                                    to="/movies"
+                                    className={({ isActive, isPending }) =>
+                                        isPending ? "pending" : isActive ? "active" : ""
+                                    }
+                                >
+                                    Formulario
+                                </NavLink>
                             </li>
                             <li>
-                                <NavLink to="/">Pagina 1</NavLink>
+                                <NavLink to="/my-component">Pagina 1</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/">Pagina 2</NavLink>
+                                <NavLink to="/other">Pagina 2</NavLink>
                             </li>
                         </ul>
                     </nav>
