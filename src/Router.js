@@ -5,51 +5,40 @@ import Articles from "./component/Articles";
 import Movies from "./component/Movies/Movies";
 import Error from "./page/Error"
 import Header from "./component/Header";
-import Slider from "./component/Slider";
-import Sidebar from "./component/Sidebar";
 import Footer from "./component/Footer";
+import Home from "./page/Home"
 
 class Router extends React.Component {
     render() {
         return (
             <BrowserRouter>
                 <Header/>
-                <Slider
-                    title={"Welcome to my blog made with React"}
-                />
 
-                <div className="center">
-                    <section id="content">
-                        <Routes>
-                            <Route path="/" Component={Articles}/>
-                            <Route path="/movies" Component={Movies}/>
-                            <Route path="/my-component" Component={MyComponent}/>
+                <Routes>
+                    <Route path="/" Component={Home}/>
+                    <Route path="/home" Component={Articles}/>
+                    <Route path="/movies" Component={Movies}/>
+                    <Route path="/my-component" Component={MyComponent}/>
 
-                            <Route path="/test/:id/:name?" Component=
-                                {
-                                    () => {
-                                        const {id, name} = useParams();
-                                        return (
-                                            <div>
-                                                <h1>Hello Mario</h1>
-                                                <h2>ID: {id}</h2>
-                                                {name &&
-                                                    <h2>{name}</h2>
-                                                }
-                                            </div>
-                                        )
-                                    }
-                                }
-                            />
+                    <Route path="/test/:id/:name?" Component=
+                        {
+                            () => {
+                                const {id, name} = useParams();
+                                return (
+                                    <div>
+                                        <h1>Hello Mario</h1>
+                                        <h2>ID: {id}</h2>
+                                        {name &&
+                                            <h2>{name}</h2>
+                                        }
+                                    </div>
+                                )
+                            }
+                        }
+                    />
 
-                            <Route path="*" Component={Error}/>
-                        </Routes>
-                    </section>
-
-                    <Sidebar/>
-
-                    <div className="clearfix"></div>
-                </div>
+                    <Route path="*" Component={Error}/>
+                </Routes>
 
                 <Footer/>
             </BrowserRouter>
