@@ -11,7 +11,9 @@ class Router extends React.Component{
                 <Routes>
                     <Route path="/" Component={Articles}/>
                     <Route path="/movies" Component={Movies}/>
-                    <Route path="/test" Component={MyComponent}/>
+                    <Route path="/my-component" Component={MyComponent}/>
+
+                    <Route path="/test" element={<h1>Hello Mario</h1>}/>
 
                     <Route path="*" Component={Error}/>
                 </Routes>
