@@ -2,12 +2,13 @@ import React from "react";
 import {BrowserRouter, Route, Routes, useParams} from "react-router-dom";
 import MyComponent from "./component/MyComponent/MyComponent";
 import Articles from "./component/Articles";
-import Movies from "./component/Movies/Movies";
+import Movies from "./page/Movies/Movies";
 import Error from "./page/Error"
 import Header from "./component/Header";
 import Footer from "./component/Footer";
 import Home from "./page/Home";
 import Blog from "./page/Blog";
+import Form from "./page/Form";
 
 class Router extends React.Component {
     render() {
@@ -19,9 +20,11 @@ class Router extends React.Component {
                     <Route path="/" Component={Home}/>
                     <Route path="/home" Component={Articles}/>
                     <Route path="/blog" Component={Blog}/>
+                    <Route path="/form" Component={Form}/>
+
+
                     <Route path="/movies" Component={Movies}/>
                     <Route path="/my-component" Component={MyComponent}/>
-
                     <Route path="/test/:id/:name?" Component=
                         {
                             () => {

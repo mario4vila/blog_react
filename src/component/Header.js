@@ -24,7 +24,7 @@ class Header extends React.Component {
                             </li>
                             <li>
                                 <NavLink
-                                    to="/movies"
+                                    to="/form"
                                     className={({ isActive, isPending }) =>
                                         isPending ? "pending" : isActive ? "active" : ""
                                     }
@@ -36,7 +36,10 @@ class Header extends React.Component {
                                 <NavLink to="/my-component">Pagina 1</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/test/1">Pagina 2</NavLink>
+                                <NavLink to="/test/1">Pagina 1</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/movies">Movies</NavLink>
                             </li>
                         </ul>
                     </nav>
