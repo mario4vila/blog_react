@@ -32,11 +32,6 @@ class Form extends React.Component {
         this.setState({
             user: user
         });
-
-        alert(`
-            Form has been sent,
-            Thanks!
-        `)
     }
     render() {
         return (
@@ -55,7 +50,7 @@ class Form extends React.Component {
                             </div>
                         }
 
-                        <form className="mid-form" onSubmit={this.handleFormSubmit}>
+                        <form className="mid-form" onSubmit={this.handleFormSubmit} onChange={this.handleFormSubmit}>
                             <div className="form-group">
                                 <label htmlFor="nombre">Nombre</label>
                                 <input type="text" name="nombre" ref={this.refName}/>
