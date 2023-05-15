@@ -9,11 +9,33 @@ class Form extends React.Component {
     refBio = React.createRef();
     refSex = React.createRef();
 
-    submitForm = (e)=>{
+    state = {
+        user: null
+    };
+
+    handleFormSubmit = (e)=>{
         e.preventDefault();
+
+        const isMale = this.refSex.current.checked;
+        let sex = 'female';
+        if (isMale){
+            sex = 'male';
+        }
+
+        const user = {
+            name: this.refName.current.value,
+            surname: this.refSurname.current.value,
+            bio: this.refBio.current.value,
+            sex: sex,
+        }
+
+        this.setState({
+            user: user
+        });
+
         alert(`
             Form has been sent,
-            Name: ${this.refName.current.value}
+            Thanks!
         `)
     }
     render() {
@@ -27,7 +49,13 @@ class Form extends React.Component {
                     <section id="content">
                         <h1 className="subheader">Formulario</h1>
 
-                        <form className="mid-form" onSubmit={this.submitForm}>
+                        {this.state.user &&
+                            <div>
+                                {JSON.stringify(this.state.user)}
+                            </div>
+                        }
+
+                        <form className="mid-form" onSubmit={this.handleFormSubmit}>
                             <div className="form-group">
                                 <label htmlFor="nombre">Nombre</label>
                                 <input type="text" name="nombre" ref={this.refName}/>
@@ -44,8 +72,8 @@ class Form extends React.Component {
                             </div>
 
                             <div className="form-group radibuttons">
-                                <input type="radio" name="genero" value={'hombre'} ref={this.refSex}/> Hombre
-                                <input type="radio" name="genero" value={'mujer'} ref={this.refSex}/> Mujer
+                                <input type="radio" name="genero" value="male" ref={this.refSex}/> Hombre
+                                <input type="radio" name="genero" value="female"/> Mujer
                             </div>
 
                             <div className="clearfix"></div>
