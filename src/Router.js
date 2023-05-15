@@ -6,7 +6,8 @@ import Movies from "./component/Movies/Movies";
 import Error from "./page/Error"
 import Header from "./component/Header";
 import Footer from "./component/Footer";
-import Home from "./page/Home"
+import Home from "./page/Home";
+import Blog from "./page/Blog";
 
 class Router extends React.Component {
     render() {
@@ -17,6 +18,7 @@ class Router extends React.Component {
                 <Routes>
                     <Route path="/" Component={Home}/>
                     <Route path="/home" Component={Articles}/>
+                    <Route path="/blog" Component={Blog}/>
                     <Route path="/movies" Component={Movies}/>
                     <Route path="/my-component" Component={MyComponent}/>
 

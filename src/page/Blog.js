@@ -2,19 +2,21 @@ import React from "react";
 import Slider from "../component/Slider";
 import Sidebar from "../component/Sidebar";
 
-class Home extends React.Component {
+class Blog extends React.Component {
     render() {
         return (
-            <div id="home">
+            <div id="blog">
                 <Slider
-                    title={"Welcome to my blog made with React"}
-                    button={'Go Blog'}
+                    title={"Last Articles"}
+                    size={'small'}
                 />
                 <div className="center">
                     <section id="content">
-                        <h1>Last Articles</h1>
+                        <p>Here to be showed articles</p>
                     </section>
-                    <Sidebar/>
+                    <Sidebar
+                        blog={true}
+                    />
 
                     <div className="clearfix"></div>
                 </div>
@@ -23,4 +25,4 @@ class Home extends React.Component {
     }
 }
 
-export default Home;
+export default Blog;

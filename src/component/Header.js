@@ -20,7 +20,7 @@ class Header extends React.Component {
                                 <NavLink to="/">Inicio</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/test/1">Blog</NavLink>
+                                <NavLink to="/blog">Blog</NavLink>
                             </li>
                             <li>
                                 <NavLink
@@ -36,7 +36,7 @@ class Header extends React.Component {
                                 <NavLink to="/my-component">Pagina 1</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/other">Pagina 2</NavLink>
+                                <NavLink to="/test/1">Pagina 2</NavLink>
                             </li>
                         </ul>
                     </nav>
