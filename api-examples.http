@@ -1,0 +1,3 @@
+### GET Articles
+GET http://localhost:3900/api/articles
+Accept: application/json
