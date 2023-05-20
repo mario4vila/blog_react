@@ -6,8 +6,7 @@ import axios from 'axios';
 class Blog extends React.Component {
 
     state = {
-        articles: {},
-        status: 'error'
+        articles: null,
     }
 
     componentDidMount() {
@@ -17,8 +16,7 @@ class Blog extends React.Component {
                 console.log(response.data.articles);
 
                 this.setState({
-                    articles: response.data.articles,
-                    status: 'success'
+                    articles: response.data.articles
                 });
             })
             .catch(function (error) {
@@ -31,6 +29,34 @@ class Blog extends React.Component {
     }
 
     render() {
+        if (this.state.articles === null) {
+            return (
+                <div>
+                    <h1>Loading...</h1>
+                </div>
+            )
+        }
+
+        const listArticles = this.state.articles.map((article) => {
+            return (
+                <article className="article-item" key={article._id}>
+                    <div className="image-wrap">
+                        <img
+                            src="https://unhabitatmejor.leroymerlin.es/sites/default/files/styles/header_category/public/2018-10/4%20paisaje%20macedonia.jpg?itok=AELknmF8"
+                            alt="Paisaje"/>
+                    </div>
+
+                    <h2>{article.title}</h2>
+                    <span className="date">
+                            {article.date}
+                        </span>
+                    <a href="#">Leer más</a>
+
+                    <div className="clearfix"></div>
+                </article>
+            );
+        })
+
         return (
             <div id="blog">
                 <Slider
@@ -39,15 +65,13 @@ class Blog extends React.Component {
                 />
                 <div className="center">
                     <section id="content">
-                        {this.state.status === 'success' &&
-                            <div>
-                                {this.state.articles.map((article) => {
-                                    return (
-                                        <p>{article.title}</p>
-                                    );
-                                })}
-                            </div>
-                        }
+                        <div id="articles">
+                            {this.state.articles &&
+                                <div>
+                                    {listArticles}
+                                </div>
+                            }
+                        </div>
                     </section>
                     <Sidebar
                         blog={true}
