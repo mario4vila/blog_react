@@ -8,6 +8,9 @@ const BlogApi = {
     getUrlImageFromArticle: (article) => {
         const image = article.image ?? 'default.jpg'
         return `${baseUrl}article/image/${image}`
+    },
+    getLastArticles() {
+        return axios.get(baseUrl + 'articles/last')
     }
 }
 

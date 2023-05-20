@@ -11,8 +11,15 @@ class ListArticles extends React.Component {
     }
 
     async componentDidMount() {
+        const isHome = this.props.isHome;
+        if (isHome){
+            const response = await BlogApi.getLastArticles();
+            this.setState({
+                articles: response.data.articles
+            });
+            return;
+        }
         const response = await BlogApi.getArticles();
-
         this.setState({
             articles: response.data.articles
         });

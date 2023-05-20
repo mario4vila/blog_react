@@ -1,3 +1,52 @@
+### Send POST request with json body
+POST http://localhost:3900/api/article/save
+Content-Type: application/json
+
+{
+  "title": "Sobre la vida 13",
+  "content": "Bueno la vida es bella..."
+}
+
 ### GET Articles
 GET http://localhost:3900/api/articles
+Accept: application/json
+
+### Only last articles
+GET http://localhost:3900/api/articles/last
+Accept: application/json
+
+### Find article by id
+GET http://localhost:3900/api/article/63012003d9f3cb1ab8ba2f90
+Accept: application/json
+
+### Update article
+PUT http://localhost:3900/api/article/63012003d9f3cb1ab8ba2f90
+Content-Type: application/json
+
+{
+  "title": "Mejor otra cosa",
+  "content": "Si mejor otra cosa!"
+}
+
+### Delete article by id
+DELETE http://localhost:3900/api/article/63012f0345df806227c2847c
+Accept: application/json
+
+### Send a form with the text and file fields
+POST http://localhost:3900/api/article/image/63012f0345df806227c2847c
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="file0"; filename="test-code.jpg"
+Content-Type: application/json
+
+< ./debug/test-code.jpg
+--WebAppBoundary--
+
+### Get image
+GET http://localhost:3900/api/article/image/image1661028456276IMG-20220802-WA0001.jpg
+Accept: application/json
+
+### Search
+GET http://localhost:3900/api/article/search/textToSearch
 Accept: application/json

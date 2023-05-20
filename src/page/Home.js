@@ -1,7 +1,7 @@
 import React from "react";
 import Slider from "../component/Slider";
 import Sidebar from "../component/Sidebar";
-
+import ListArticles from "../component/Article/ListArticles";
 class Home extends React.Component {
     render() {
         return (
@@ -13,6 +13,9 @@ class Home extends React.Component {
                 <div className="center">
                     <section id="content">
                         <h1>Last Articles</h1>
+                        <ListArticles
+                            isHome={true}
+                        />
                     </section>
                     <Sidebar/>
 
