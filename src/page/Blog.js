@@ -4,6 +4,7 @@ import Sidebar from "../component/Sidebar";
 import BlogApi from "../api/BlogApi";
 import Moment from "react-moment";
 import 'moment/locale/es'
+import {Link} from "react-router-dom";
 
 class Blog extends React.Component {
 
@@ -41,7 +42,7 @@ class Blog extends React.Component {
                     <span className="date">
                         <Moment fromNow={true} locale={'es'}>{article.date}</Moment>
                         </span>
-                    <a href="#">Leer más</a>
+                    <Link to={`/blog/article/${article._id}`}>Leer más</Link>
 
                     <div className="clearfix"></div>
                 </article>

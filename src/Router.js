@@ -9,6 +9,7 @@ import Footer from "./component/Footer";
 import Home from "./page/Home";
 import Blog from "./page/Blog";
 import Form from "./page/Form";
+import PageArticle from "./page/PageArticle";
 
 class Router extends React.Component {
     render() {
@@ -20,6 +21,7 @@ class Router extends React.Component {
                     <Route path="/" Component={Home}/>
                     <Route path="/home" Component={Articles}/>
                     <Route path="/blog" Component={Blog}/>
+                    <Route path="/blog/article/:id" Component={PageArticle}/>
                     <Route path="/form" Component={Form}/>
 
 
