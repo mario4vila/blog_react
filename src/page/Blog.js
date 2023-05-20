@@ -2,6 +2,8 @@ import React from "react";
 import Slider from "../component/Slider";
 import Sidebar from "../component/Sidebar";
 import BlogApi from "../api/BlogApi";
+import Moment from "react-moment";
+import 'moment/locale/es'
 
 class Blog extends React.Component {
 
@@ -37,7 +39,7 @@ class Blog extends React.Component {
 
                     <h2>{article.title}</h2>
                     <span className="date">
-                            {article.date}
+                        <Moment fromNow={true} locale={'es'}>{article.date}</Moment>
                         </span>
                     <a href="#">Leer más</a>
 
