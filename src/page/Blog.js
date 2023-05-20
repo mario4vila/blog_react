@@ -1,7 +1,7 @@
 import React from "react";
 import Slider from "../component/Slider";
 import Sidebar from "../component/Sidebar";
-import axios from 'axios';
+import BlogApi from "../api/BlogApi";
 
 class Blog extends React.Component {
 
@@ -9,23 +9,12 @@ class Blog extends React.Component {
         articles: null,
     }
 
-    componentDidMount() {
-        axios.get('http://localhost:3900/api/articles')
-            .then(response => {
-                // handle success
-                console.log(response.data.articles);
+    async componentDidMount() {
+        const response = await BlogApi.getArticles();
 
-                this.setState({
-                    articles: response.data.articles
-                });
-            })
-            .catch(function (error) {
-                // handle error
-                // console.log(error);
-            })
-            .finally(function () {
-                // always executed
-            });
+        this.setState({
+            articles: response.data.articles
+        });
     }
 
     render() {
@@ -42,8 +31,8 @@ class Blog extends React.Component {
                 <article className="article-item" key={article._id}>
                     <div className="image-wrap">
                         <img
-                            src="https://unhabitatmejor.leroymerlin.es/sites/default/files/styles/header_category/public/2018-10/4%20paisaje%20macedonia.jpg?itok=AELknmF8"
-                            alt="Paisaje"/>
+                            src={BlogApi.getUrlImageFromArticle(article)}
+                            alt={article.title}/>
                     </div>
 
                     <h2>{article.title}</h2>
