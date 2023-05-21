@@ -10,6 +10,7 @@ import Home from "./page/Home";
 import Blog from "./page/Blog";
 import Form from "./page/Form";
 import PageArticle from "./page/PageArticle";
+import Search from "./page/Search";
 
 class Router extends React.Component {
     render() {
@@ -22,6 +23,7 @@ class Router extends React.Component {
                     <Route path="/home" Component={Articles}/>
                     <Route path="/blog" Component={Blog}/>
                     <Route path="/blog/article/:id" Component={PageArticle}/>
+                    <Route path="/blog/search/:search" Component={Search}/>
                     <Route path="/form" Component={Form}/>
 
 

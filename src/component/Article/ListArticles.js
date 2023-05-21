@@ -11,6 +11,11 @@ class ListArticles extends React.Component {
     }
 
     async componentDidMount() {
+        const search = this.props.search;
+        if (search){
+            await this.getArticlesBySearch(search)
+            return;
+        }
         const isHome = this.props.isHome;
         if (isHome){
             const response = await BlogApi.getLastArticles();
@@ -20,6 +25,13 @@ class ListArticles extends React.Component {
             return;
         }
         const response = await BlogApi.getArticles();
+        this.setState({
+            articles: response.data.articles
+        });
+    }
+
+    getArticlesBySearch = async (search) => {
+        const response = await BlogApi.getArticlesBySearch(search);
         this.setState({
             articles: response.data.articles
         });

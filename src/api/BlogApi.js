@@ -11,6 +11,9 @@ const BlogApi = {
     },
     getLastArticles() {
         return axios.get(baseUrl + 'articles/last')
+    },
+    getArticlesBySearch(search) {
+        return axios.get(baseUrl + 'article/search/' + search)
     }
 }
 
