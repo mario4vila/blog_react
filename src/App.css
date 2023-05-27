@@ -208,6 +208,22 @@ a.active{
   background:black;
 }
 
+.btn-danger{
+  background: rgb(163, 14, 14);
+}
+
+.btn-danger:hover{
+  background:black;
+}
+
+.btn-warning{
+  background: rgb(227, 137, 19);
+}
+
+.btn-warning:hover{
+  background:black;
+}
+
 .mid-form{
   width: 50%;
   margin: 0px auto;

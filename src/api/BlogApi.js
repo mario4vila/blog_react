@@ -14,7 +14,10 @@ const BlogApi = {
     },
     getArticlesBySearch(search) {
         return axios.get(baseUrl + 'article/search/' + search)
-    }
+    },
+    getArticle: (id) => {
+        return axios.get(baseUrl + 'article/' + id)
+    },
 }
 
 export default BlogApi;
