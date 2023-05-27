@@ -239,6 +239,7 @@ a.active{
 }
 
 input[type="text"],
+input[type="file"],
 textarea{
   width: 100%;
   min-height: 30px;

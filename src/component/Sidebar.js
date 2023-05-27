@@ -1,9 +1,12 @@
 import React, {useState} from "react";
+import {useNavigate} from "react-router-dom";
 
 const Sidebar = (props) => {
     const [formValues, setFormValues] = useState({
         search: ''
     });
+
+    const navigate = useNavigate();
 
     const handleInputChange = (event) => {
         const {name, value} = event.target;
@@ -20,7 +23,7 @@ const Sidebar = (props) => {
             {props.blog &&
                 <div id="nav-blog" className="sidebar-item">
                     <h3>Puedes hacer esto</h3>
-                    <a href="#" className="btn btn-success">Crear artículo</a>
+                    <a onClick={()=>navigate("/blog/create")} className="btn btn-success">Crear artículo</a>
                 </div>
             }
 

@@ -11,6 +11,7 @@ import Blog from "./page/Blog";
 import Form from "./page/Form";
 import PageArticle from "./page/PageArticle";
 import Search from "./page/Search";
+import CreateArticle from "./page/CreateArticle";
 
 class Router extends React.Component {
     render() {
@@ -24,6 +25,7 @@ class Router extends React.Component {
                     <Route path="/blog" Component={Blog}/>
                     <Route path="/blog/article/:id" Component={PageArticle}/>
                     <Route path="/blog/search/:search" Component={Search}/>
+                    <Route path="/blog/create" Component={CreateArticle}/>
                     <Route path="/form" Component={Form}/>
 
 
