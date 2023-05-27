@@ -3,10 +3,12 @@ import Slider from "../component/Slider";
 import Sidebar from "../component/Sidebar";
 import BlogApi from "../api/BlogApi";
 import {useNavigate} from "react-router-dom";
+import SimpleReactValidator from "simple-react-validator";
 
 const CreateArticle = () => {
     const navigate = useNavigate();
-
+    const [validator] = useState(new SimpleReactValidator());
+    const [, forceUpdate] = useState(0);
     const [formValues, setFormValues] = useState({
         title: '',
         content: ''
@@ -20,6 +22,12 @@ const CreateArticle = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (!validator.allValid()) {
+            validator.showMessages();
+            forceUpdate(1);
+            return;
+        }
+
         const response = await BlogApi.createArticle(formValues)
         if (response.data.status!=='success'){
             alert('Error');
@@ -62,11 +70,13 @@ const CreateArticle = () => {
                         <div className={"form-group"}>
                             <label htmlFor="title">Title</label>
                             <input type="text" id="title" name="title" value={formValues.title} onChange={handleInputChange}/>
+                            {validator.message('title', formValues.title, 'required|alpha_num_space')}
                         </div>
 
                         <div className={"form-group"}>
                             <label>Content</label>
                             <textarea name="content" value={formValues.content} onChange={handleInputChange}/>
+                            {validator.message('content', formValues.content, 'required|alpha_num_space')}
                         </div>
 
                         <div className={"form-group"}>
