@@ -2,14 +2,14 @@ import React, {useEffect, useState} from "react";
 import Slider from "../component/Slider";
 import Sidebar from "../component/Sidebar";
 import BlogApi from "../api/BlogApi";
-import {useParams} from "react-router-dom";
-import Moment from "react-moment";
-import 'moment/locale/es'
+import {useNavigate} from "react-router-dom";
 
 const CreateArticle = () => {
+    const navigate = useNavigate();
+
     const [formValues, setFormValues] = useState({
         title: '',
-        content: '',
+        content: ''
     });
 
     const handleInputChange = (event) => {
@@ -17,9 +17,15 @@ const CreateArticle = () => {
         setFormValues({...formValues, [name]: value});
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-
+        const response = await BlogApi.createArticle(formValues)
+        if (response.data.status!=='success'){
+            alert('Error');
+            return;
+        }
+        alert('Article Created!');
+        navigate("/blog");
     }
 
     return (
@@ -29,7 +35,7 @@ const CreateArticle = () => {
                 size={'small'}
             />
             <div className="center">
-                <section id="section-content">
+                <section id="content">
 
                     <form className={"mid-form"} onSubmit={handleSubmit}>
                         <div className={"form-group"}>
@@ -38,8 +44,8 @@ const CreateArticle = () => {
                         </div>
 
                         <div className={"form-group"}>
-                            <label htmlFor="content">Content</label>
-                            <textarea id="content" name="content" value={formValues.content} onChange={handleInputChange}/>
+                            <label>Content</label>
+                            <textarea name="content" value={formValues.content} onChange={handleInputChange}/>
                         </div>
 
                         <div className={"form-group"}>

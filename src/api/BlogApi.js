@@ -18,6 +18,9 @@ const BlogApi = {
     getArticle: (id) => {
         return axios.get(baseUrl + 'article/' + id)
     },
+    createArticle: (article) => {
+        return axios.post(baseUrl + 'article/save', article)
+    }
 }
 
 export default BlogApi;
