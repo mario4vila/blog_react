@@ -46,6 +46,14 @@ class ListArticles extends React.Component {
             )
         }
 
+        if (this.state.articles.length === 0) {
+            return (
+                <div>
+                    <h1>There aren't articles to show.</h1>
+                </div>
+            )
+        }
+
         const listArticles = this.state.articles.map((article) => {
             return (
                 <article className="article-item" key={article._id}>
