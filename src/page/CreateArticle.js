@@ -11,6 +11,7 @@ const CreateArticle = () => {
         title: '',
         content: ''
     });
+    const [selectedFile, setSelectedFile] = useState(null);
 
     const handleInputChange = (event) => {
         const {name, value} = event.target;
@@ -24,9 +25,29 @@ const CreateArticle = () => {
             alert('Error');
             return;
         }
-        alert('Article Created!');
+
+        if (!selectedFile){
+            alert('Article Created!');
+            return;
+        }
+
+        const articleId = response.data.article._id;
+        const formData = new FormData();
+
+        formData.append(
+            'file0',
+            selectedFile,
+            selectedFile.name
+        );
+        await BlogApi.updateArticleImage(articleId, formData);
+        alert('Article Created with Image!');
+
         navigate("/blog");
     }
+
+    const handleFileChange = (e) => {
+        setSelectedFile(e.target.files[0]);
+    };
 
     return (
         <div id="create-article">
@@ -50,7 +71,7 @@ const CreateArticle = () => {
 
                         <div className={"form-group"}>
                             <label htmlFor="file0">Image</label>
-                            <input type="file" id="file0" name="file0"/>
+                            <input type="file" id="file0" name="file0" onChange={handleFileChange}/>
                         </div>
 
                         <input type="submit" value={"Save"} className={"btn btn-success"}/>

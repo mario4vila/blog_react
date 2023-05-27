@@ -37,10 +37,10 @@ POST http://localhost:3900/api/article/image/63012f0345df806227c2847c
 Content-Type: multipart/form-data; boundary=WebAppBoundary
 
 --WebAppBoundary
-Content-Disposition: form-data; name="file0"; filename="test-code.jpg"
+Content-Disposition: form-data; name="file0"; filename="naruto-test.jpg"
 Content-Type: application/json
 
-< ./debug/test-code.jpg
+< ./naruto-test.jpg
 --WebAppBoundary--
 
 ### Get image
