@@ -22,7 +22,7 @@ const Search = () => {
                     />
                 </section>
                 <Sidebar
-                    blog={true}
+                    blog={false}
                 />
 
                 <div className="clearfix"></div>
