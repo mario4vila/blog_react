@@ -4,6 +4,7 @@ import Sidebar from "../component/Sidebar";
 import BlogApi from "../api/BlogApi";
 import {useNavigate} from "react-router-dom";
 import SimpleReactValidator from "simple-react-validator";
+import swal from "sweetalert";
 
 const CreateArticle = () => {
     const navigate = useNavigate();
@@ -35,7 +36,11 @@ const CreateArticle = () => {
         }
 
         if (!selectedFile){
-            alert('Article Created!');
+            await swal(
+                'Article Created',
+                'The article has been created!',
+                'success'
+            );
             return;
         }
 
