@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import Slider from "../component/Slider";
 import Sidebar from "../component/Sidebar";
 import BlogApi from "../api/BlogApi";
@@ -30,12 +30,12 @@ const CreateArticle = () => {
         }
 
         const response = await BlogApi.createArticle(formValues)
-        if (response.data.status!=='success'){
+        if (response.data.status !== 'success') {
             alert('Error');
             return;
         }
 
-        if (!selectedFile){
+        if (!selectedFile) {
             await swal(
                 'Article Created',
                 'The article has been created!',
@@ -74,7 +74,9 @@ const CreateArticle = () => {
                     <form className={"mid-form"} onSubmit={handleSubmit}>
                         <div className={"form-group"}>
                             <label htmlFor="title">Title</label>
-                            <input type="text" id="title" name="title" value={formValues.title} onChange={handleInputChange}/>
+                            <input type="text" id="title" name="title"
+                                   value={formValues.title}
+                                   onChange={handleInputChange}/>
                             {validator.message('title', formValues.title, 'required|alpha_num_space')}
                         </div>
 
